@@ -17,5 +17,11 @@ steps:
   displayName: 'Installeer npm-pakketten'
 
 - script: |
-    npm run build  # of npm run test als je geen aparte build-stap nodig hebt
+    npm run build  # Of npm run test als je geen aparte build-stap nodig hebt
   displayName: 'Bouw project en voer tests uit'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/results/*.xml'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
