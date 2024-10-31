@@ -1,0 +1,59 @@
+node_modules/.bin/cypress.cmd
+# Node modules
+node_modules/.bin/cypress.cmd
+
+# Cypress output
+cypress/videos/.bin/cypress.cmd
+cypress/screenshots/.bin/cypress.cmd
+
+# Logfiles
+npm-debug.log/.bin/cypress.cmd
+yarn-debug.log/.bin/cypress.cmd
+yarn-error.log/.bin/cypress.cmd
+
+# Omgevingsvariabelen
+.env/.bin/cypress.cmd
+
+# Specifieke editorbestanden
+.vscode/.bin/cypress.cmd
+.DS_Store.bin/cypress.cmd
+node_modules/lodash/fp/sortedLastIndexOf.js
+.js
+.js*.js
+*.js
+cypress/*.js
+*.js
+!src/*.js
+cypress/integration/*.js
+cypress/integration/*.js
+
+
+node_modules/
+# Node modules
+node_modules/
+
+# Cypress output
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Logfiles
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Omgevingsvariabelen
+.env
+.env.local
+.env.*.local
+
+# IDE-specific settings
+.vscode/
+.idea/
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+
