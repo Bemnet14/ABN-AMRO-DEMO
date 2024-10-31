@@ -1,0 +1,9 @@
+{
+    "default": {
+      "mochaJunitReporterReporterOptions": {
+        "mochaFile": "results/my-test-results.xml",
+        "toConsole": true
+      }
+    }
+  }
+  
