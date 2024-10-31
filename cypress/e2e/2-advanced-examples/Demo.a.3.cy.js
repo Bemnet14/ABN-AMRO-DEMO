@@ -14,7 +14,7 @@ describe('Registratie Test', () => {
         return email;
     }
     
-    // Lijst van namen dn
+    // Lijst van namen dns
     const namesAndEmails = [
         { firstName: 'Emma', lastName: 'Koster' },
         { firstName: 'Lars', lastName: 'Van den Berg' },
