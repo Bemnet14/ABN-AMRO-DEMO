@@ -1,0 +1,21 @@
+trigger:
+  branches:
+    include:
+      - master  # Pas aan naar je standaard branch
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'  # Specificeer de versie van Node.js die je wilt gebruiken
+  displayName: 'Installeer Node.js'
+
+- script: |
+    npm install
+  displayName: 'Installeer npm-pakketten'
+
+- script: |
+    npm run build  # of npm run test als je geen aparte build-stap nodig hebt
+  displayName: 'Bouw project en voer tests uit'
