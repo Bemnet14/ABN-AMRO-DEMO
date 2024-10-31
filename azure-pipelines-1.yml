@@ -20,6 +20,11 @@ steps:
     npm run build  # Of npm run test als je geen aparte build-stap nodig hebt
   displayName: 'Bouw project en voer tests uit'
 
+- script: |
+    npm run test -- --reporter junit --reporter-options mochaFile=results/junit-[hash].xml
+  displayName: 'Voer Cypress-tests uit en genereer testresultaten'
+
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
