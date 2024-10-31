@@ -18,11 +18,9 @@ yarn-error.log/.bin/cypress.cmd
 .vscode/.bin/cypress.cmd
 .DS_Store.bin/cypress.cmd
 node_modules/lodash/fp/sortedLastIndexOf.js
-.js
-.js*.js
-*.js
-cypress/*.js
-*.js
+
+
+
 !src/*.js
 cypress/integration/*.js
 cypress/integration/*.js
@@ -33,6 +31,34 @@ node_modules/
 node_modules/
 
 # Cypress output
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Logfiles
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Omgevingsvariabelen
+.env
+.env.local
+.env.*.local
+
+# IDE-specific settings
+.vscode/
+.idea/
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+
+# Node modules
+node_modules/
+
+# Cypress output (ignore alleen de output, niet de tests zelf)
 cypress/videos/
 cypress/screenshots/
 cypress/downloads/
