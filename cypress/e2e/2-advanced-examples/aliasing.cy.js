@@ -16,9 +16,9 @@ context('Aliasing', () => {
       .first().find('td').first()
       .find('button').as('firstBtn')
 
-    // when we reference the alias, we place an
+    // when we reference the alias, we place ank
     // @ in front of its name
-    cy.get('@firstBtn').click()
+    cy.get('@firstBtn').click() 
 
     cy.get('@firstBtn')
       .should('have.class', 'btn-success')
