@@ -1,0 +1,22 @@
+trigger:
+  branches:
+    include:
+      - main  # Vervang dit door de naam van je hoofdbranch
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'  # Specificeer de gewenste Node.js versie
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build  # Als je een build-script hebt, anders dit weglaten
+  displayName: 'Install npm packages and build project'
+
+- script: |
+    npm run test
+  displayName: 'Run Cypress tests'
