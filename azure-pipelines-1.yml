@@ -17,16 +17,16 @@ steps:
   displayName: 'Installeer npm-pakketten'
 
 - script: |
-    npm run build  # Of npm run test als je geen aparte build-stap nodig hebt
-  displayName: 'Bouw project en voer tests uit'
-
-- script: |
-    npm run test -- --reporter junit --reporter-options mochaFile=results/junit-[hash].xml
-  displayName: 'Voer Cypress-tests uit en genereer testresultaten'
-- script: |
-    mkdir -p results
+    mkdir -p results  # Maak resultatenmap aan voor testresultaten
   displayName: 'Maak resultatenmap aan'
 
+- script: |
+    npm run build  # Bouw project (optioneel, als je geen aparte build-stap nodig hebt)
+  displayName: 'Bouw project'
+
+- script: |
+    npm run test -- --reporter junit --reporter-options mochaFile=results/junit-results-[hash].xml
+  displayName: 'Voer Cypress-tests uit en genereer testresultaten'
 
 - task: PublishTestResults@2
   inputs:
