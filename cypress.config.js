@@ -3,11 +3,21 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
-      require("cypress-junit")({
-        // Configureer de JUnit reporter
-        mochaFile: "results/junit-[hash].xml", // Pas dit aan naar de gewenste outputlocatie
-      })(on);
+      const mocha = require('mocha');
+
+      // Hier stel je de reporter in
+      on('after:run', (results) => {
+        // Hier kun je een aangepaste actie toevoegen, als dat nodig is
+        console.log('Testresultaten:', results);
+      });
+
+      // JUnit reporter toevoegen
+      on('task', {
+        'mocha-junit-reporter': (results) => {
+          const reporter = require('mocha-junit-reporter');
+          reporter(results);
+        }
+      });
     },
   },
 });

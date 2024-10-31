@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.477" tests="1" failures="1">
+  <testsuite name="Root Suite" timestamp="2024-10-31T22:45:37" tests="0" file="cypress\e2e\2-advanced-examples\Demo.a.3.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Registratie Test" timestamp="2024-10-31T22:45:37" tests="1" time="0.470" failures="1">
+    <testcase name="Registratie Test registreert met willekeurige naam en wachtwoord" time="0.000" classname="registreert met willekeurige naam en wachtwoord">
+      <failure message="firstName is not defined" type="ReferenceError"><![CDATA[ReferenceError: firstName is not defined
+    at Context.eval (webpack://abn-amro-demo/./cypress/e2e/2-advanced-examples/Demo.a.3.cy.js:44:32)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>
