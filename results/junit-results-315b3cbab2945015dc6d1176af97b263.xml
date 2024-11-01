@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="7.816" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2024-10-31T22:45:41" tests="0" file="cypress\e2e\2-advanced-examples\Demo.a.cy.js" time="0.000" failures="0">
-  </testsuite>
-  <testsuite name="Registratie Test 2" timestamp="2024-10-31T22:45:41" tests="1" time="7.807" failures="0">
-    <testcase name="Registratie Test 2 registreert met willekeurige naam en wachtwoord" time="4.910" classname="registreert met willekeurige naam en wachtwoord">
-    </testcase>
-  </testsuite>
-</testsuites>
