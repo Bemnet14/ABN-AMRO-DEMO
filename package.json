@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
+    "test": "cypress run --reporter cypress-junit --reporter-options mochaFile=results/junit-results-[hash].xml",
     "build": "npm install && cypress install"
   },
   "keywords": [],
