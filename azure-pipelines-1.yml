@@ -33,6 +33,6 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/results/*.xml'  # Zoek in de resultatenmap naar eventuele JUnit-uitvoerbestanden van Cypress
+    testResultsFiles: '$(System.DefaultWorkingDirectory)/results/*.xml'  # Zoek in de resultatenmap naar eventuele JUnit-uitvoerbestanden van Cypress
     searchFolder: '$(System.DefaultWorkingDirectory)'
     failTaskOnFailedTests: false
