@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-      - master  # Pas aan naar je standaard branch
+      - master  # Aanpassen naar je standaard branch
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -13,7 +13,7 @@ steps:
   displayName: 'Installeer Node.js'
 
 - script: |
-    set -x  # Activatie van debug-informatie
+    set -x  # Activeer debug-informatie
     npm install
   displayName: 'Installeer npm-pakketten'
 
@@ -26,15 +26,12 @@ steps:
   displayName: 'Bouw project'
 
 - script: |
-    npm run test -- --reporter junit --reporter-options mochaFile=results/junit-results-[hash].xml
-  displayName: 'Voer Cypress-tests uit en genereer testresultaten'
+    npm run test  # Run Cypress tests zonder specifieke reporter-opties
+  displayName: 'Voer Cypress-tests uit'
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
-    failTaskOnFailedTests: true
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/results/*.xml'
+    testResultsFiles: '**/results/*.xml'  # Zoek in de resultatenmap naar eventuele JUnit-uitvoerbestanden van Cypress
     searchFolder: '$(System.DefaultWorkingDirectory)'
+    failTaskOnFailedTests: true
