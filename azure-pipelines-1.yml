@@ -28,7 +28,11 @@ steps:
 - script: |
     npm run test -- --reporter junit --reporter-options mochaFile=results/junit-results-[hash].xml
   displayName: 'Voer Cypress-tests uit en genereer testresultaten'
-
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    failTaskOnFailedTests: true
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
