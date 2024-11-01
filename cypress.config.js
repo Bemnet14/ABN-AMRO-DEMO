@@ -7,7 +7,7 @@ module.exports = defineConfig({
 
       // Hier stel je de reporter in
       on('after:run', (results) => {
-        // Hier kun je een aangepaste actie toevoegen, als dat nodig is
+        trashAssetsBeforeRuns: true,  // Voeg deze optie toe// Hier kun je een aangepaste actie toevoegen, als dat nodig is
         console.log('Testresultaten:', results);
       });
 
