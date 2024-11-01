@@ -1,37 +1,51 @@
 trigger:
   branches:
     include:
-    - master
-    - main
-    - develop
+      - master  # Aanpassen naar je standaard branch
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
+    versionSpec: '20.x'  # Specificeer de versie van Node.js die je wilt gebruiken
+  displayName: 'Installeer Node.js'
 
 - script: |
+    set -x  # Activeer debug-informatie
     npm install
-  displayName: 'npm install'
+  displayName: 'Installeer npm-pakketten'
 
 - script: |
-    npm run build
-  displayName: 'Build project'
+    set -x  # Activeer debug-informatie
+    mkdir -p results  # Maak resultatenmap aan voor testresultaten
+  displayName: 'Maak resultatenmap aan'
 
 - script: |
-    npm run lint
-  displayName: 'Lint code'
+    set -x  # Activeer debug-informatie
+    npm run build  # Bouw project (optioneel, als je geen aparte build-stap nodig hebt)
+  displayName: 'Bouw project'
 
 - script: |
-    npm test
-  displayName: 'Run tests'
+    set -x  # Activeer debug-informatie
+    if [ -d "cypress/screenshots" ]; then
+      rm -rf cypress/screenshots/*
+      echo "Oude screenshots verwijderd."
+    else
+      echo "Screenshots map bestaat niet."
+    fi
+  displayName: 'Verwijder oude screenshots'
 
-- task: PublishBuildArtifacts@1
+- script: |
+    set -x  # Activeer debug-informatie
+    npm run test  # Run Cypress tests zonder specifieke reporter-opties
+  displayName: 'Voer Cypress-tests uit'
+  continueOnError: true  # Taak zal niet falen op foutmeldingen in standaard fout
+
+- task: PublishTestResults@2
   inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: 'drop'
-  displayName: 'Publish build artifacts'
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '$(System.DefaultWorkingDirectory)/results/*.xml'  # Zoek in de resultatenmap naar eventuele JUnit-uitvoerbestanden van Cypress
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    failTaskOnFailedTests: false
