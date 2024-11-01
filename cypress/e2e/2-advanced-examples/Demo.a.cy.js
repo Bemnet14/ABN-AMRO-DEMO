@@ -18,7 +18,7 @@ describe('Registratie Test 2', () => {
       Cypress.env('randomName', randomName);
       Cypress.env('randomEmail', randomEmail);
   
-      // Klik op de registratieknop ok
+      // Klik op de registratieknop ok ok 2
       cy.get('[name="register-button"]').click()
   
       // Voer validatie uit om te controleren of registratie is gelukt
